@@ -1,33 +1,21 @@
 @tailwind base;
+
+@layer base {
+  *:focus {
+    @apply outline-none ring ring-4 ring-yellow-500
+  }
+}
+
 @tailwind components;
+
+@layer components {
+  input[type="radio"]:focus + label {
+    @apply outline ring-4 ring-yellow-500
+  }
+
+  input[type="radio"]:checked + label {
+    @apply border border-gray-900
+  }
+}
+
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
