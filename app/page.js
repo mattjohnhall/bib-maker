@@ -81,7 +81,7 @@ export default function Home() {
             as={Fragment}
           >
             <div className="fixed inset-0 w-screen overflow-y-auto modal">
-              <Dialog.Panel className="relative mx-auto my-8 p-12 max-w-3xl rounded-xl overflow-hidden bg-white">
+              <Dialog.Panel className="relative mx-auto my-8 p-8 lg:p-12 max-w-3xl rounded-xl overflow-hidden bg-white">
                 <div className="flex flex-col items-center text-center gap-8">
                   <div className="w-1/2 lg:w-64 aspect-square bg-gray-100">
                     <img src={`${process.env.NEXT_PUBLIC_URL}/api/bib?number=${raceNumber}&start=${startLine}`} alt="Your bib" className="bg-white max-w-full h-auto border border-gray-200" />
@@ -95,9 +95,9 @@ export default function Home() {
                       <p>Best of luck on race day!</p>
                     </div>
 
-                    <div className="space-x-2">
-                      <Link href="https://2024tcslondonmarathon.enthuse.com/pf/matt-hall" target="_blank" className="inline-flex items-center justify-center space-x-2 px-4 h-12 bg-gray-900 text-white rounded-lg hover:bg-gray-800">Sure, I would love to donate</Link>
-                      <button onClick={() => setIsOpen(false)} className="inline-flex items-center justify-center space-x-2 px-4 h-12 bg-white border border-gray-400 text-gray-800 rounded-lg hover:bg-gray-100">No, thank you</button>
+                    <div>
+                      <Link href="https://2024tcslondonmarathon.enthuse.com/pf/matt-hall" target="_blank" className="inline-flex items-center justify-center space-x-2 m-1 px-4 h-12 bg-gray-900 text-white rounded-lg hover:bg-gray-800">Sure, I would love to donate</Link>
+                      <button onClick={() => setIsOpen(false)} className="inline-flex items-center justify-center space-x-2 m-1 px-4 h-12 bg-white border border-gray-400 text-gray-800 rounded-lg hover:bg-gray-100">No, thank you</button>
                     </div>
                   </div>
                 </div>
