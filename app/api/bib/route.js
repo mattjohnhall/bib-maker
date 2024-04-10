@@ -28,8 +28,8 @@ export async function GET(request) {
     return new ImageResponse(
       (
         <div tw="flex flex-col h-full w-full bg-white" style={{ fontFamily: `Inter, Helvetica, Arial, sans-serif` }}>
-          <div tw="flex flex-row items-center justify-center px-16 py-12 w-full h-1/3 bg-black bib__upper">
-            <img src={`${process.env.NEXT_PUBLIC_URL}/img/tcs.png`} alt="TATA Consultancy Services" tw="object-contain" />
+          <div tw="flex flex-row items-center justify-center px-32 py-24 w-full h-1/3 bg-black bib__upper">
+            <img src={`${process.env.NEXT_PUBLIC_URL}/img/tcs-lm-full.png`} alt="TCS London Marathon" tw="object-contain" />
           </div>
 
           <div tw="flex flex-col items-center justify-between h-[41.67%] bib__middle" style={{ backgroundColor: theme.background }}>
