@@ -12,13 +12,14 @@ export default function Home() {
 
   const [raceNumber, setRaceNumber] = useState(defaults.raceNumber)
   const [startLine, setStartLine] = useState(defaults.startLine)
+  const [name, setName] = useState('')
   const [isOpen, setIsOpen] = useState(false)
   const themes = ["blue", "green", "red", "yellow"]
   
   return (
     <main className="flex lg:min-h-screen flex-row-reverse items-center justify-center flex-wrap lg:flex-nowrap">
       <div className="relative flex flex-col items-center justify-center p-6 lg:p-8 w-full lg:min-h-screen bg-gray-100 rounded-2xl border-8 border-white">
-        <img src={`${process.env.NEXT_PUBLIC_URL}/api/bib?number=${raceNumber}&start=${startLine}`} alt="Your bib" className="bg-white max-w-full lg:max-w-xl xl:max-w-2xl h-auto shadow-2xl" />
+        <img src={`${process.env.NEXT_PUBLIC_URL}/api/bib?number=${raceNumber}&start=${startLine}${name && `&name=${name}`}`} alt="Your bib" className="bg-white max-w-full lg:max-w-xl xl:max-w-2xl h-auto shadow-2xl" />
       </div>
 
       <div className="flex flex-col justify-between p-6 lg:p-8 space-y-8 w-full lg:w-128 lg:min-h-screen">
@@ -59,9 +60,14 @@ export default function Home() {
                 
               </div>
             </div>
+
+            <div className="space-y-2">
+              <label className="block text-sm font-bold text-gray-900">Your Name <span className="font-normal text-gray-600">(Optional)</span></label>
+              <input type="text" name="name" className="w-full h-12 border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-yellow-500" onChange={e => setName(e.target.value)} />
+            </div>
           </form>
 
-          <a href={`/api/bib?number=${raceNumber}&start=${startLine}`} download={`bib-${raceNumber}.png`} onClick={() => setIsOpen(true)} className="inline-flex items-center justify-center space-x-2 w-full h-12 bg-gray-900 text-white rounded-lg hover:bg-gray-800">
+          <a href={`/api/bib?number=${raceNumber}&start=${startLine}${name && `&name=${name}`}`} download={`bib-${raceNumber}.png`} onClick={() => setIsOpen(true)} className="inline-flex items-center justify-center space-x-2 w-full h-12 bg-gray-900 text-white rounded-lg hover:bg-gray-800">
             <span>Download Bib</span>
           </a>
         </div>
@@ -91,7 +97,7 @@ export default function Home() {
               <Dialog.Panel className="relative mx-auto my-8 p-8 lg:p-12 max-w-3xl rounded-xl overflow-hidden bg-white">
                 <div className="flex flex-col items-center text-center gap-8">
                   <div className="w-1/2 lg:w-64 aspect-square bg-gray-100">
-                    <img src={`${process.env.NEXT_PUBLIC_URL}/api/bib?number=${raceNumber}&start=${startLine}`} alt="Your bib" className="bg-white max-w-full h-auto border border-gray-200" />
+                    <img src={`${process.env.NEXT_PUBLIC_URL}/api/bib?number=${raceNumber}&start=${startLine}${name && `&name=${name}`}`} alt="Your bib" className="bg-white max-w-full h-auto border border-gray-200" />
                   </div>
 
                   <div className="w-full space-y-6">
