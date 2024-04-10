@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] })
 const meta = {
   title: "London Marathon Bib Maker",
   description: "Create a custom avatar of your London Marathon race bib",
-  image: `${process.env.NEXT_PUBLIC_URL}/api/bib?number=58336&start=blue`,
+  image: `${process.env.NEXT_PUBLIC_URL}/api/og`,
 }
 
 export const metadata = {

@@ -5,7 +5,7 @@ export const runtime = "edge"
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url)
-    const number = searchParams.has("number") ? searchParams.get("number")?.slice(0, 100) : "12345"
+    const number = searchParams.has("number") ? searchParams.get("number")?.slice(0, 100) : "58336"
     const start = searchParams.has("start") ? searchParams.get("start")?.slice(0, 100) : "blue" 
 
     const themes = {
