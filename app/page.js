@@ -5,46 +5,53 @@ import { Dialog, Transition } from '@headlessui/react'
 import Link from "next/link"
 
 export default function Home() {
-  const [raceNumber, setRaceNumber] = useState("58336")
-  const [startLine, setStartLine] = useState("blue")
+  const defaults = {
+    raceNumber: "58336",
+    startLine: "blue",
+  }
+
+  const [raceNumber, setRaceNumber] = useState(defaults.raceNumber)
+  const [startLine, setStartLine] = useState(defaults.startLine)
   const [isOpen, setIsOpen] = useState(false)
   const themes = ["blue", "green", "red", "yellow"]
   
   return (
     <main className="flex lg:min-h-screen flex-row-reverse items-center justify-center flex-wrap lg:flex-nowrap">
-      <div className="relative flex flex-col items-center justify-center p-8 w-full lg:min-h-screen bg-gray-100 rounded-2xl border-8 border-white">
+      <div className="relative flex flex-col items-center justify-center p-6 lg:p-8 w-full lg:min-h-screen bg-gray-100 rounded-2xl border-8 border-white">
         <img src={`${process.env.NEXT_PUBLIC_URL}/api/bib?number=${raceNumber}&start=${startLine}`} alt="Your bib" className="bg-white max-w-full lg:max-w-xl xl:max-w-2xl h-auto shadow-2xl" />
       </div>
 
-      <div className="flex flex-col justify-between p-8 space-y-8 w-full lg:w-128 lg:min-h-screen">
-        <div className="space-y-8">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 22" className="hidden lg:flex h-6">
-            <title>Matt Hall</title>
-            <path 
-              fill={"currentColor"} fillOpacity={0.5} d="M10.35 20.1a4.7 4.7 0 0 0 7.53-5.62L8.47 1.9A4.7 4.7 0 0 0 0 4.71v12.58a4.7 4.7 0 0 0 9.22 1.3l1.12 1.51Z" />
-            <path 
-              fill={"currentColor"} fillOpacity={0.5} d="M17.65 20.1a4.7 4.7 0 0 1-7.53-5.62L19.53 1.9A4.7 4.7 0 0 1 28 4.71v12.58a4.7 4.7 0 0 1-9.22 1.3l-1.13 1.51Z" />
-          </svg>
+      <div className="flex flex-col justify-between p-6 lg:p-8 space-y-8 w-full lg:w-128 lg:min-h-screen">
+        <div className="space-y-6 lg:space-y-8">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 22" className="hidden lg:flex mb-8 h-6">
+              <title>Matt Hall</title>
+              <path 
+                fill={"currentColor"} fillOpacity={0.5} d="M10.35 20.1a4.7 4.7 0 0 0 7.53-5.62L8.47 1.9A4.7 4.7 0 0 0 0 4.71v12.58a4.7 4.7 0 0 0 9.22 1.3l1.12 1.51Z" />
+              <path 
+                fill={"currentColor"} fillOpacity={0.5} d="M17.65 20.1a4.7 4.7 0 0 1-7.53-5.62L19.53 1.9A4.7 4.7 0 0 1 28 4.71v12.58a4.7 4.7 0 0 1-9.22 1.3l-1.13 1.51Z" />
+            </svg>
 
-          <div className="space-y-2">
-            <h1 className="text-3xl lg:text-4xl">London Marathon Bib Maker</h1>
-            <p className="text-base lg:text-lg text-gray-700">Enter your number and start line to create an avatar out of your race bib</p>
+            <div className="space-y-2">
+              <h1 className="text-3xl lg:text-4xl">London Marathon Bib Maker</h1>
+              <p className="text-base lg:text-lg text-gray-700">Enter your number and start line to create an avatar out of your race bib</p>
+            </div>
           </div>
 
-          <form className="space-y-6">
+          <form className="space-y-4">
             <div className="space-y-2">
               <label className="block text-sm font-bold text-gray-900">Race Number</label>
-              <input type="text" name="number" className="w-full h-12 text-xl border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-yellow-500" onChange={e => setRaceNumber(e.target.value)} />
+              <input type="text" name="number" placeholder={`e.g. ${defaults.raceNumber}`} className="w-full h-12 border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-yellow-500" onChange={e => setRaceNumber(e.target.value)} />
             </div>
 
             <div className="space-y-2">
               <label className="block text-sm font-bold text-gray-900">Start Line</label>
               
-              <div className="flex flex-col lg:flex-row space-between gap-2">
-                {themes.map((theme) => (
-                  <div className="block w-full lg:inline-flex lg:w-auto" key={theme}>
-                    <input className="sr-only  focus:outline-none" type="radio" name="start" id={`option-${theme}`} value={theme} onChange={e => setStartLine(e.target.value)} />
-                    <label className="inline-flex items-center justify-center px-4 h-12 w-full lg:w-auto border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-100" for={`option-${theme}`}>
+              <div className="flex flex-row rounded-lg">
+                {themes.map((theme, index) => (
+                  <div className="flex w-full" key={theme}>
+                    <input className="sr-only focus:outline-none" type="radio" name="start" id={`option-${theme}`} value={theme} onChange={e => setStartLine(e.target.value)} checked={theme == startLine} />
+                    <label className={`flex items-center justify-center px-3 h-12 w-full border-r border-t border-b border-gray-300 ${index === 0 && `border-l rounded-l-lg`} ${(themes.length - 1) === index && `rounded-r-lg`} cursor-pointer hover:bg-gray-100`} for={`option-${theme}`}>
                       <span class="capitalize">{theme}</span>
                     </label>
                   </div>

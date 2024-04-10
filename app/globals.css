@@ -10,11 +10,11 @@
 
 @layer components {
   input[type="radio"]:focus + label {
-    @apply outline ring-4 ring-yellow-500
+    @apply outline-none ring-4 ring-yellow-500
   }
 
   input[type="radio"]:checked + label {
-    @apply border border-gray-900
+    @apply border-transparent bg-gray-900 text-white
   }
 }
 
