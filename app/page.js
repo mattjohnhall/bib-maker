@@ -104,12 +104,12 @@ export default function Home() {
                     <Dialog.Title className="text-2xl lg:text-3xl text-gray-900">Your bib is now downloading</Dialog.Title>
 
                     <div className="space-y-4">
-                      <p>If you&apos;ve found this little tool helpful, would you consider making a small donation to the Royal Marsden Cancer Charity? Every contribution, no matter how big or small, goes a long way in supporting their incredible work in the fight against cancer.</p>
+                      <p>If you&apos;ve found this little tool helpful, would you consider making a small donation to Bexley Mencap? Every contribution, no matter how big or small, goes a long way in supporting their incredible work helping people with learning disabilities.</p>
                       <p>Best of luck on race day!</p>
                     </div>
 
                     <div>
-                      <Link href="https://2024tcslondonmarathon.enthuse.com/pf/matt-hall" target="_blank" className="inline-flex items-center justify-center space-x-2 m-1 px-4 h-12 bg-gray-900 text-white rounded-lg hover:bg-gray-800">Sure, I would love to donate</Link>
+                      <Link href="https://www.justgiving.com/page/matt-hall-mencap" target="_blank" className="inline-flex items-center justify-center space-x-2 m-1 px-4 h-12 bg-gray-900 text-white rounded-lg hover:bg-gray-800">Sure, I would love to donate</Link>
                       <button onClick={() => setIsOpen(false)} className="inline-flex items-center justify-center space-x-2 m-1 px-4 h-12 bg-white border border-gray-400 text-gray-800 rounded-lg hover:bg-gray-100">No, thank you</button>
                     </div>
                   </div>
