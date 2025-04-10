@@ -14,7 +14,7 @@ module.exports = {
       current: "currentColor",
       black: colors.black,
       white: colors.white,
-      gray: colors.stone,
+      gray: colors.gray,
       red: colors.red,
       green: colors.emerald,
       blue: colors.sky,
@@ -23,6 +23,7 @@ module.exports = {
     extend: {
       spacing: {
         '128': '32rem',
+        '144': '36rem',
         '192': '48rem',
         '256': '64rem',
       },
