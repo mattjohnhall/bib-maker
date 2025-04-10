@@ -1,8 +1,11 @@
-import { Inter } from "next/font/google";
+import { Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const geist = Geist({ 
+  subsets: ["latin"],
+  display: 'swap',
+})
 
 const meta = {
   title: "London Marathon Bib Maker",
@@ -37,12 +40,10 @@ export const metadata = {
   },
 }
 
-
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} text-gray-800`}>
+      <body className={`${geist.className} text-gray-800 bg-gray-200`}>
         {children}
         <Analytics/>
       </body>
