@@ -36,11 +36,15 @@ export default function Generator({ campaign }) {
             <div className="space-y-4">
               <h1 className="text-3xl lg:text-4xl font-black">London Marathon Bib Maker</h1>
 
-              <div className="space-y-1">
-                <p className="text-xs font-medium">Supporting</p>
-                <Link href={campaign.charityUrl} target="_blank">
-                  <img src={`${campaign.logo}?ref=bib-maker`} alt={campaign.charity} className="hidden lg:flex mb-8 h-12" />
-                </Link>
+              <div className="flex flex-row items-center justify-between px-4 py-3 bg-gray-100 rounded-lg">
+                <div>
+                  <div className="text-xs font-medium mb-1">Supporting</div>
+                  <Link href={campaign.donationLink} target="_blank">
+                    <img src={`${campaign.logo}?ref=bib-maker`} alt={campaign.charity} className="h-12" />
+                  </Link>
+                </div>
+
+                <Link href={campaign.donationLink} target="_blank" className="inline-flex items-center justify-center space-x-2 m-1 px-3 h-10 bg-white border border-gray-300 shadow text-gray-800 font-medium rounded-lg hover:bg-gray-100">Donate</Link>
               </div>
             </div>
             
